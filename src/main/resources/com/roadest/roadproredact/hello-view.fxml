@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="borderPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.roadest.roadproredact.HelloController">
+    <center>
+        <Pane fx:id="pane" />
+    </center>
+    <left>
+       <ToolBar fx:id="propertyBar" orientation="VERTICAL" prefHeight="200.0" prefWidth="86.0" style="-fx-border-color: black; -fx-background-color: white;" BorderPane.alignment="CENTER">
+           <VBox fx:id="roadAttrs" prefWidth="100.0">
+               <Label text="Тип дороги" />
+               <ComboBox fx:id="roadType" prefWidth="150.0" />
+               <Label text="Количество полос" />
+            <Slider fx:id="stripesCount" blockIncrement="1.0" max="5.0" min="1.0" showTickLabels="true" showTickMarks="true" value="1.0" />
+           </VBox>
+           <VBox fx:id="stripeAttrs" layoutX="10.0" layoutY="10.0" prefWidth="100.0">
+               <Label text="Тип разметки" />
+               <ComboBox fx:id="borderType" prefWidth="150.0" />
+           </VBox>
+           <VBox fx:id="signAttrs" layoutX="10.0" layoutY="98.0" prefWidth="100.0">
+               <Label text="Тип знака" />
+               <ComboBox fx:id="signType" prefWidth="150.0" />
+           </VBox>
+       </ToolBar>
+   </left>
+   <top>
+       <MenuBar fx:id="menuBar" style="-fx-border-color: black; -fx-background-color: white;" BorderPane.alignment="CENTER">
+           <Menu mnemonicParsing="false" text="Файл">
+               <MenuItem mnemonicParsing="false" onAction="#saveToWord" text="Сохранить отчет" />
+           </Menu>
+           <Menu mnemonicParsing="false" text="Правка">
+               <MenuItem mnemonicParsing="false" onAction="#clearItem" text="Очистить сцену" />
+           </Menu>
+           <Menu mnemonicParsing="false" text="Помощь">
+               <MenuItem mnemonicParsing="false" onAction="#helpItem" text="О программе" />
+           </Menu>
+       </MenuBar>
+   </top>
+   <right>
+       <ToolBar orientation="VERTICAL" prefHeight="200.0" prefWidth="81.0" BorderPane.alignment="CENTER">
+         <Label text="Объекты" />
+         <Separator prefHeight="4.0" prefWidth="53.0" />
+         <ToggleButton fx:id="RoadButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Дорога">
+            <toggleGroup>
+               <ToggleGroup fx:id="creatings" />
+            </toggleGroup></ToggleButton>
+         <ToggleButton fx:id="signButton" layoutX="10.0" layoutY="68.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Знак" toggleGroup="$creatings" />
+         <ToggleButton fx:id="roadConnect" layoutX="10.0" layoutY="97.0" mnemonicParsing="false" text="Перекресток" toggleGroup="$creatings" />
+         <Label text="Действия" />
+         <Separator prefHeight="3.0" prefWidth="74.0" />
+         <ToggleButton fx:id="delete" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Удаление " toggleGroup="$creatings" />
+         <ToggleButton fx:id="select" mnemonicParsing="false" text="Выбор" toggleGroup="$creatings" />
+         <ToggleButton fx:id="movement" mnemonicParsing="false" text="Перемещение" toggleGroup="$creatings" />
+       </ToolBar>
+   </right>
+</BorderPane>
